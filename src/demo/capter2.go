@@ -1,4 +1,4 @@
-package main
+package demo
 
 import (
 	"fmt"
@@ -21,14 +21,17 @@ func main() {
 	}
 	fmt.Println(sum, 1)
 	file, e := os.Open("array sd")
+	fmt.Println(file, e)
 
 	// 就是 这里的for 就是while
-	for contition {
+	/*for contition {
 
-	}
+	}*/
+
+
 	// 什么条件都没有就是死循环
-	for {
+	/*for {
 
-	}
+	}*/
 
 }

@@ -1,4 +1,4 @@
-package main
+package demo
 
 import "fmt"
 
@@ -10,7 +10,6 @@ func main() {
 	//arr2 := [3]int{1,2,3}
 	// 如果不大点就是切片
 	//arr3 := [...]int{1,2,4}
-
 
 	a := 1
 	change(&a)

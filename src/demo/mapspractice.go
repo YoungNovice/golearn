@@ -1,4 +1,4 @@
-package main
+package demo
 
 import "fmt"
 
@@ -19,7 +19,6 @@ func getStringMaxSubString(s string) (int)  {
 	return maxLength
 
 }
-
 
 func main() {
 
