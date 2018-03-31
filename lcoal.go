@@ -1,3 +1,7 @@
+package main
 
-d1c72a64fbbe3972407bcf8dcb3d284e330e1e9e
-d1c72a64fbbe3972407bcf8dcb3d284e330e1e9e
+import "fmt"
+
+func main() {
+	fmt.Println("Hello go")
+}
