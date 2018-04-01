@@ -1,16 +1,18 @@
 package main
 
 import (
-	"tree"
 	"fmt"
+	"tree"
 )
 
 // 扩展类型的方式
 type myTreeNode struct {
- 	node *tree.TreeNode
+	node *tree.TreeNode
 }
 
-func (myNode *myTreeNode) postOder()  {
+//gopm get -g -v -u golang.org/x/tools/cmd/goimports
+
+func (myNode *myTreeNode) postOder() {
 	if myNode == nil || myNode.node == nil {
 		return
 	}
@@ -21,13 +23,11 @@ func (myNode *myTreeNode) postOder()  {
 	fmt.Print(myNode.node.Value, " ")
 }
 
-
-
 // oop 只支持封装
 func main() {
 	var root tree.TreeNode
 	// 直接创建一个结构
-	root = tree.TreeNode{Value:3}
+	root = tree.TreeNode{Value: 3}
 	// 左孩子是某个结果的指针
 	root.Left = &tree.TreeNode{}
 	root.Right = &tree.TreeNode{nil, nil, 5}
@@ -42,6 +42,4 @@ func main() {
 	myTreeNode := myTreeNode{&root}
 	myTreeNode.postOder()
 
-
 }
-
