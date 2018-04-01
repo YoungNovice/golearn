@@ -1,6 +1,27 @@
 package main
 
-import "tree"
+import (
+	"tree"
+	"fmt"
+)
+
+// 扩展类型的方式
+type myTreeNode struct {
+ 	node *tree.TreeNode
+}
+
+func (myNode *myTreeNode) postOder()  {
+	if myNode == nil || myNode.node == nil {
+		return
+	}
+	left := myTreeNode{myNode.node.Left}
+	right := myTreeNode{myNode.node.Right}
+	left.postOder()
+	right.postOder()
+	fmt.Print(myNode.node.Value, " ")
+}
+
+
 
 // oop 只支持封装
 func main() {
@@ -16,6 +37,11 @@ func main() {
 	// 在slice 中创建treeNode 可以省略
 	//nodes := []treeNode{ {value:3},{},{nil,nil, 6}}
 	root.Traverse()
+
+	fmt.Println("xxxxxxxx")
+	myTreeNode := myTreeNode{&root}
+	myTreeNode.postOder()
+
 
 }
 
