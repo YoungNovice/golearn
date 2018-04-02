@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"retriever/mock"
+	"retriever/real"
 )
 
 type Retriever interface {
@@ -14,5 +15,26 @@ type Retriever interface {
 func main() {
 	var r Retriever
 	r = mock.RetrieverImp{Content: "this is a mock Retriever"}
-	fmt.Println(r.Get("sss"))
+	inspect(r)
+	r = &real.Retriever{}
+	inspect(r)
+
+	// type assertion
+	if retriever, ok := r.(*real.Retriever); ok {
+		fmt.Println(retriever.User)
+	} else {
+		fmt.Println("not real.Retriever	")
+	}
+	//fmt.Println(r.Get("http://www.baidu.com"))
+}
+
+func inspect(r Retriever) {
+	fmt.Printf("%T %v\n", r, r)
+	switch v := r.(type) {
+	case mock.RetrieverImp:
+		fmt.Println("contents:", v.Content)
+	case *real.Retriever:
+		fmt.Println("UserAgent:", v.User)
+
+	}
 }
