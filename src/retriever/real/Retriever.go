@@ -1,6 +1,7 @@
 package real
 
 import (
+	"fmt"
 	"net/http"
 	"net/http/httputil"
 )
@@ -8,6 +9,10 @@ import (
 type Retriever struct {
 	User    string
 	TImeOut int
+}
+
+func (r *Retriever) String() string {
+	return fmt.Sprintf("%s %d", r.User, r.TImeOut)
 }
 
 func (r *Retriever) Get(url string) string {
