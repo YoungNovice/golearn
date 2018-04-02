@@ -25,6 +25,9 @@ func main() {
 	} else {
 		fmt.Println("not real.Retriever	")
 	}
+	// 接口变量自带指针 所以一般采用值传递就可以了
+	// 指针接收者只能以指针方式使用 ， 值接收者都可以
+
 	//fmt.Println(r.Get("http://www.baidu.com"))
 }
 
