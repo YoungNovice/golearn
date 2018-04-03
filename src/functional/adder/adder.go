@@ -8,6 +8,7 @@ import "fmt"
 
 
 */
+
 func adder() func(i int) int {
 	sum := 0
 	return func(v int) int {

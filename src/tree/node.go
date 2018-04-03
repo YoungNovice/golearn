@@ -33,9 +33,10 @@ func (node *TreeNode) NodeCount() int {
 }
 
 func (node *TreeNode) Traverse2() {
-	node.TraverseFunc(func(node *TreeNode) {
+	f := func(node *TreeNode) {
 		node.Print()
-	})
+	}
+	node.TraverseFunc(f)
 	fmt.Println()
 }
 
