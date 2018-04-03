@@ -24,6 +24,14 @@ func (node *TreeNode) Traverse() {
 	node.Right.Traverse()
 }
 
+func (node *TreeNode) NodeCount() int {
+	var count = 0
+	node.TraverseFunc(func(node *TreeNode) {
+		count++
+	})
+	return count
+}
+
 func (node *TreeNode) Traverse2() {
 	node.TraverseFunc(func(node *TreeNode) {
 		node.Print()
