@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"errors"
 	"fmt"
 	"functional/fib"
 	"os"
@@ -9,9 +10,16 @@ import (
 
 // deffer 处理资源
 func WriteFile(fileName string) {
-	file, err := os.Create(fileName)
+	//file, err := os.Create(fileName)
+	file, err := os.OpenFile(fileName, os.O_EXCL|os.O_CREATE, 0666)
+	err = errors.New("this is my errors")
 	if err != nil {
-		panic(err)
+		if pathError, ok := err.(*os.PathError); !ok {
+			fmt.Println(pathError.Op, pathError.Err, pathError.Path)
+		} else {
+			panic(err)
+		}
+		return
 	}
 
 	defer file.Close()
