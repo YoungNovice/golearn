@@ -1,4 +1,4 @@
-package main
+package fib
 
 import (
 	"fmt"
@@ -19,28 +19,10 @@ func (i intGen) Read(p []byte) (n int, err error) {
 	return strings.NewReader(s).Read(p)
 }
 
-func fibonacci() intGen {
+func Fibonacci() intGen {
 	a, b := 0, 1
 	return func() int {
 		a, b = b, a+b
 		return a
 	}
-}
-
-func main() {
-	f := fibonacci()
-	fmt.Println(f())
-	fmt.Println(f())
-	fmt.Println(f())
-	fmt.Println(f())
-	fmt.Println(f())
-	fmt.Println(f())
-	fmt.Println(f())
-	fmt.Println(f())
-	fmt.Println(f())
-	fmt.Println(f())
-	fmt.Println(f())
-
-	f1 := fibonacci()
-	fmt.Println(f1())
 }
