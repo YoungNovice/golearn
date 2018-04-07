@@ -1,2 +1,2 @@
 # golearn
-学习go
+some golang demo
